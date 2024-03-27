@@ -28,6 +28,12 @@ describe('Calculator', () => {
     expect(cal.value).toBe(11);
   });
 
+  it('add should throw an error if value is greater than 100', () => {
+    expect(() => {
+      cal.add(102);
+    }).toThrow('Value can not be greater than 100');
+  });
+
   it('subtract', () => {
     cal.set(10);
     cal.subtract(3);
@@ -35,9 +41,16 @@ describe('Calculator', () => {
   });
 
   it('multiply', () => {
-    cal.set(12);
+    cal.set(2);
     cal.multiply(12);
-    expect(cal.value).toBe(144);
+    expect(cal.value).toBe(24);
+  });
+
+  it('multiply should throw an error if value is greater than 100', () => {
+    expect(() => {
+      cal.set(12);
+      cal.multiply(12);
+    }).toThrow('Value can not be greater than 100');
   });
 
   describe('divides', () => {
